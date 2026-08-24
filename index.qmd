@@ -1,0 +1,94 @@
+---
+title: "431 Project B Instructions"
+author: "Thomas E. Love, Ph.D."
+date: last-modified
+---
+
+# What is Project B?
+
+Project B is the second of two real data science projects you'll be doing this semester. It involves the completion of four tasks, which you’ll start working on after Fall Break.
+
+1. You will complete a Registration Form to obtain my approval for what you propose, let me know if you’re working with a partner, and schedule your oral presentation.
+2. You will build Quarto and HTML reports describing your work.
+3. You (and your partner, if applicable) will present your project sometime between 12-04 and 12-09 to Dr. Love in his office in person or via Zoom. 
+4. Finally, you will complete a Self-Evaluation form.
+
+# What's on this Website
+
+- [The Data](data1.qmd): Instructions on getting data for Project B
+    - You'll either use [data from NHANES](data2.qmd), or from [some other source](data3.qmd).
+- [Registration information](register.qmd) proposing your Project B.
+    - This involves completing a [Google Form](https://tinyurl.com/431-2026-register-projectB) by the deadline in early November specified on the [Course Calendar](https://thomaselove.github.io/431-2026/calendar.html). In this form, you will:
+      - specify whether or not you are working with a partner
+      - tell us a little about the data source (NHANES or other) you intend to use
+      - provide options for when you can give your oral presentation, and whether you prefer to do so in person or via Zoom
+- Instructions for [Study 1](study1a.qmd)
+    - You'll find information on [required Study 1 analyses](study1a.qmd)
+    - We also provide detailed [Study 1 report specifications](study1b.qmd)
+    - You'll also find a [Study 1 sample report](study1c.qmd)
+- Instructions for [Study 2](study2a.qmd)
+    - You'll find information on [required Study 2 analyses](study2a.qmd)
+    - We also provide detailed [Study 2 report specifications](study2b.qmd)
+    - You'll also find a [Study 2 sample report](study2c.qmd)
+- [Self-Evaluation Form](self_eval.qmd) for Project B 
+    - If you work with a partner, each of you submits this form separately.
+- A [Checklist](checklist.qmd) of the tasks that need to be accomplished for Project B, which also includes some details on the oral presentation you'll give to Dr. Love in December.
+- A [Tip Sheet](tipsheet.qmd) of about 20 things that have come up in the past that are worth your attention as you prepare your final materials for presentation and submission.
+- The top menu also provides links to contact us, and to the 431 home page.
+
+All of the material you need (from a statistical and coding perspective) to do Project B has been or will be covered in our first 24 classes (i.e. immediately before the Thanksgiving Break), as well as in the Course Book Chapters 1-22 and Labs 1-7.
+
+# Project B Deliverables
+
+1. You will complete a [Registration Form](register.qmd) to obtain my approval for your proposed work, let me know if you're working with a partner, and schedule your oral presentation, by the early November deadline on the [Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
+2. You (and your partner, if applicable) will present your project to Dr. Love in his office. Details on the Oral Presentation are found in the [Checklist](checklist.qmd) menu above. 
+3. You will build two Quarto and HTML reports (separate reports for [Study 1](study1a.qmd) and [Study 2](study2a.qmd)) by the Project B materials deadline in the [Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
+    - If you're not using NHANES data, you'll also submit your data to Dr. Love at that time.
+4. Finally, you will complete a [Self-Evaluation form](self_eval.qmd), by the Project B materials deadline in the [Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
+
+# Partnerships?
+
+You can work alone, or with one other person on this project. If you work as a pair, you will commit to that when you [register for the project](register.qmd). Each of you will receive the team grade for the project reports, and an individual grade for the other components of the project.
+
+# The Data
+
+You will work with the same [data source](data1.qmd) for [Study 1](study1a.qmd) and for [Study 2](study2a.qmd), and these data will be developed either [from NHANES](data2.qmd) or from [another public source](data3.qmd) that you identify.
+
+- You will find detailed instructions regarding the use of NHANES data for Project B [here](data2.qmd).
+- If you want to [use other data](data3.qmd), you'll need it to meet some specifications we'll describe, and you'll have to get Dr. Love's permission when you [register your project](register.qmd). 
+- Since most people consider working with NHANES data to be easier, we will award **five** extra points to projects which use non-NHANES data.
+
+# Study 1
+
+- [Study 1](study1a.qmd) is about making descriptive and exploratory comparisons and summaries of data. It's not about building sophisticated statistical models.
+- You will ingest, merge and clean the data in R, then select variables to complete any four out of five potential analyses, as described [in these instructions](study1a.qmd). 
+    - You can do all five analyses if you like (as preparation for Quiz 2, for instance) but you will only present four in your report. No bonus credit for doing all five analyses.
+- You will use 90% confidence throughout your Study 1 and Study 2.
+- Dr Love has developed Study 1 [Report Specifications](study1b.qmd) and a Study 1 [Sample Report](study1c.qmd) which should guide your eventual submitted Study 1 report.
+
+# Study 2
+
+- [Study 2](study2a.qmd) is about building a model and making predictions. You will complete all elements of a data science project designed to create a statistical model for a quantitative outcome, then use it for prediction, and assess the quality of those predictions.
+- Study 2 involves working with data from the same source that you used for Study 1. Again, you will work through all cleaning and data management requirements in your Study 2 report.
+    - Study 2 involves the prediction of a quantitative outcome using a key predictor and some additional predictors in two linear regression models, and then comparing those two models.
+    - All of the material you need (from a statistical and coding perspective) to do these analyses has been or will be covered in our first 23 classes and in the Course Notes.
+- You will use 90% confidence throughout your Study 1 and Study 2.
+- Dr Love has developed Study 2 [Report Specifications](study2b.qmd) and a Study 2 [Sample Report](study2c.qmd) which should guide your eventual submitted Study 2 report.
+
+# Grading
+
+Project B will be graded by Dr. Love on a scale from 0-250 points.
+
+- On-time successful completion of the [Registration Form](register.qmd) is worth 25 points.
+- The two study reports ([Study 1](study1b.qmd) and [Study 2](study2b.qmd)) due at the final Project B deadline are worth a combined 100 points.
+- The oral presentation is also worth 100 points. Details on the Oral Presentation are found in the [Checklist](checklist.qmd).
+- The [self-evaluation](self_eval.qmd) is worth 25 points.
+- Late work on Project B is unacceptable. All deadlines are in the [Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
+
+Dr. Love will provide **no written feedback** on your Project B work. The grading timeline is simply too tight on my end. I apologize in advance.
+
+# Questions?
+
+If you have questions at any time, email `431-help` at `case` dot `edu`, speak with Dr. Love before or after class, or discuss them with the TAs during their office hours. 
+    - We encourage you to wait to ask detailed questions about Project B logistics until mid-October, in case these instructions change before then. 
+

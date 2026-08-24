@@ -1,0 +1,95 @@
+---
+title: "Data Development"
+author: "431 Staff"
+date: last-modified
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+You must use the same data source for Study 1 and Study 2 in Project B. That data source must either be:
+
+- NHANES data, as [discussed here](data2.qmd).
+- something else, as [discussed here](data3.qmd).
+  - To encourage people to use data other than NHANES, there is a five-point bonus in the final project B grade for all projects which use non-NHANES data.
+
+# Data Requirements for Study 1 and Study 2
+
+1. Number of observations
+    a. If you are using NHANES data, you will need between 500 and 7,500 observations with a minimum of 500 observations containing complete data on all of the variables you will use in Study 1 or Study 2.
+    b. If you are using any other data source, you will need between 250 and 10,000 observations, and at least 250 with complete data on all variables you will use in Study 1 or Study 2.
+    c. We require that all variables treated as quantitative in Study 1 (Analyses A, B, or C) or as your quantitative outcome in Study 2 contain at least 15 unique values.
+    d. The data must include a unique coded identifier (`SEQN` in NHANES) for each row (subject.)
+2. Number and type of variables for Study 1 (where you will do 4 of the following 5 analyses)
+    a. For Analysis A, you will need appropriate data to allow you to compare two means using paired samples. So that would require a set of paired measurements of the same quantity, perhaps measurements of the same subjects before and after the application of an exposure.  Again, we require that all variables treated as quantitative in Study 1 (Analyses A, B, or C) or as your quantitative outcome in Study 2 contain at least 15 unique values.
+    b. For Analysis B, you will need appropriate data to allow you to compare two means using independent samples. This would require a quantitative outcome (with at least 15 unique values), and a binary categorical variable which divides the data into two subgroups, so that each subgroup has a minimum of 30 observations. 
+    c. For Analysis C, you will need appropriate data to allow you to compare 3-6 means using independent samples. This would require a quantitative outcome (with at least 15 unique values), and a multi-categorical variable with 3-6 categories which divides the data into subgroups, so that each subgroup has a minimum of 30 observations.
+    d. For Analysis D, you will need appropriate data to allow you to create and analyze a 2 $\times$ 2 table. This would require two independently collected binary categorical variables, that split the data into four groups in a 2 $\times$ 2 table, each with a minimum of 30 observations.
+    e. For Analysis E, you will need appropriate data to allow you to create and analyze a J $\times$ K table, where $2 \leq J \leq 5$ and $3 \leq K \leq 5$. This would require two independently collected categorical variables (one with J groups and one with K groups), that split the data into groups in a J $\times$ K table, so that each cell within the table has a minimum of 15 observations.
+    f. At a bare minimum, then, you will need a quantitative outcome (for Analyses A, B and C) and two binary variables (one for B and two for D and one for E) and a multi-categorical variable with 3-5 levels (for C and E) although you are welcome to use different variables from the same data source for each of the four Study 1 analyses you complete.
+3. Number and type of variables for Study 2
+    a. You will need a quantitative outcome. Again, we require that your quantitative outcome contains at least 15 unique values.
+    b. You will need a key predictor of interest (which may be either quantitative, or categorical.) If it is categorical, it must have 2-6 categories, and each category must contain at least 30 observations. Your research question will focus largely on how effectively this key predictor can be used to predict your quantitative outcome.
+    c. You will need to identify 3-8 additional predictors of your outcome, at least one of which must be a multi-categorical predictor with 3-6 categories, where each category contains at least 30 observations. The other predictors can be any combination of quantitative and categorical (with 2-6 categories each, with at least 30 observations in each category.)
+4. Your data for each Study must be managed, merged (if necessary) and cleaned exclusively using R to go from raw data to that Study's final clean tibble. This data management process must include the creation of appropriately labeled (and, if necessary, collapsed) factors for all categorical variables you will use in either study, and appropriate investigation and actions regarding missing values, numbers of unique values, and impossible values.
+5. You will need to generate a single clean data set which you will then use for all four of your Study 1 analyses. For Study 1, work with a data set that has **complete cases** only on all of the analytic variables you study in your various Study 1 analyses. Describe those data overall using a codebook and an appropriate set of numerical summaries for your variables.
+6. You will need to generate a single clean data set for all of your Study 2 analyses, which you will then partition (after **single imputation** of all variables besides your outcome and key predictor, to deal with missing values of all of your non-key predictors, if they exist) into a model training (or development) sample containing 60-80% of the data, and a model testing (or validation) sample containing the remaining 20-40% of the data. Describe the training data overall using a codebook and an appropriate set of numerical summaries, as you did in Study 1.
+
+# Tips on Cleaning Your Data
+
+1. If you need to merge data (for instance in NHANES) clean the data **after** completing the merge.
+
+2. It is only necessary to clean the variables you will actually use in your analyses below. Create an analytic data set containing only those variables.
+    - This should include a subject identification code (the `SEQN` in NHANES), your outcome, your key predictor and your other predictors. 
+    - If you are working with NHANES Aug 2021-Aug 2023 data, you must include **RIDSTATR** and **RIDAGEYR** from the **DEMO_L** file. If you are working with NHANES 2017-March 2020 data, you must include the same variables from the **P_DEMO** file. 
+        - Include **RIDSTATR** just so that you can prove that all of its values are 2 in your sample.
+        - Include **RIDAGEYR** even if you're not using it in your models, so you can describe the ages of the people in your sample.
+
+3. If you create a categorical variable from a quantitative one, do so in this section of your report, and then refer to that work in the analyses below when you use the new variable. In general, though, I wouldn't do that except in dire circumstances. Variables that use categories to describe what were originally quantitative variables aren't quantitative any more.
+
+4. Things I would treat as missing include responses like Refused, Don't Know, Did Not Respond, Unknown, No response and missing. 
+    - If you have a quantitative variable that includes a code like 5555 or 9999 for "don't know" or "missing", you will need to identify those cases as missing when ingesting the data, just as you would if you were working with a categorical variable.
+    - Be sure that R recognizes things that are missing as missing.
+
+5. Collapse levels sensibly for multi-categorical variables with more than 6 categories. If you want to use more than 6 categories for a categorical variable in your analyses, contact Dr. Love. 
+    - If you have a categorical variable with codes like 77, 88 or 99, in addition to treating those as missing, you want to drop those levels from the factors you create. I recommend you run **droplevels()** on your tibble to remove all factor levels with zero subjects. That can help down the line.
+
+6. For NHANES folks, a few specific things:
+    - **Gender vs. Sex** I would treat the `RIAGENDR` variable as describing biological sex and would rename it as I created a factor.
+    - **Race/Ethnicity** If you want to use race/ethnicity I would prefer the use of `RIDRETH3` over `RIDRETH1`, and I would recommend using all six categories, assuming you have at least 100 subjects at each level after whatever other pruning you do. If you want to collapse, then lumping codes 1 and 2 into "Hispanic/Latinx" is acceptable. Remember that race/ethnicity as a covariate is an attempt to understand the impact of structural racism, at least as much as it is anything else, so interpretation requires special care.
+    - **Age** Do not use a categorical version of age. Use the quantitative version, called `RIDAGEYR`, provided in the `DEMO_L` or `P_DEMO` data. When you describe your subjects, you should specify the range (minimum and maximum) ages of those subjects, so you will need to capture `RIDAGEYR` in your final analytic data set even if you're not including it in your regression models.
+    - **Income and Measurement Caps** The family income ratio `INDFMPIR` is appealing and quantitative, but it has a pronounced ceiling effect. It is the ratio of income to the poverty level, but is capped at 5. How should you think about that? (Note that age in adults is also capped, at 80.)
+    - **Education Categories** If you're working with adults (ages 20 and over), the `DMDEDUC2` variable in the `DEMO_L` or `P_DEMO` file is the set of categories to use. I would probably collapse codes 1 and 2 together to create a four-category variable with "Less than HS", "HS Grad", "Some College", "College Grad".
+
+7. Be sure to treat all multi-categorical variables as **factors** in R, and don't treat numeric codes as meaningful numeric variables.
+
+8.  Make sure that all of your quantitative variables have sensible minimum and maximum values as you're cleaning.
+
+9. Some binary variables are coded 1 and 2. Fix that in your work, ideally by using the real names and treating the variable as a factor, or by converting the 1-2 to a proper 1-0 indicator variable.
+    - Use the formula **NEWVAR = 2 - OLDVAR** to turn OLDVAR: 1 = Yes, 2 = No into NEWVAR: 1 = Yes, 0 = No.
+    - If you have OLDVAR: 1 = No, 2 = Yes, create a NEWVAR with 1 = Yes, 0 = No using **NEWVAR = OLDVAR - 1**.
+
+10. In Study 1, filter to complete cases. In Study 2, You should only filter to complete cases on the outcome and key predictor in Study 2. Then, perform single (simple) imputation using the `mice` package for any variables that are neither your outcome or your key predictor in Study 2 with missing values.
+
+11. You are welcome to apply **janitor::clean_names** at the start or end of your cleaning, if you like. If you do decide to change the names as well (and that's a good idea if a name is long or confusing, especially with NHANES), that's great, but be sure to specify the original names as well in the codebook.
+
+12. Please don't include sanity checks in your report. We'll trust you have to have done that work on your own.
+
+13. Again, if you have missing data, you will do different things in Study 1 and Study 2 about this.
+
+  - In Study 1, you should explicitly state that you are assuming that the "missing completely at random (MCAR)" mechanism for missing data, and then filter until you have only complete cases.
+  - In Study 2, you should explicitly state that you are assuming that "missing at random (MAR)" is the most appropriate missing data mechanism and then use single imputation for Study 2, with two exceptions: (1) I don't want you to impute your outcome or key predictor, so you will need to filter to complete cases on those variables, **and** (2) you may decide to add on a multiple imputation summary of parameters for the final model if you choose, as we'll discuss in Class 21.
+
+# To use data from NHANES (National Health and Nutrition Examination Survey). 
+
+- Please read the **Data Requirements for Study 1 and Study 2** and **Tips on Cleaning Your Data** above, then read the additional details on what is required if you're [working with NHANES data here](data2.qmd).
+- Many people (in past years) have felt that using NHANES data was a little easier than using another data source. To encourage people to use data other than NHANES, there is a five-point bonus in the final project B grade available for all projects which use non-NHANES data.
+
+# To use data from a non-NHANES source that meets with Dr. Love's approval. 
+
+- Please read the **Data Requirements for Study 1 and Study 2** and **Tips on Cleaning Your Data** above, then read the additional details on what is required if you're instead [working with some other data source here](data3.qmd).
+- Again, to encourage people to use data other than NHANES, there is a five-point bonus available to all projects which use non-NHANES data.
+
+
+

@@ -1,0 +1,82 @@
+---
+title: "Study 2 Report Specifications"
+author: "431 Staff"
+date: last-modified
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+Produce a beautiful HTML report. It should include:
+
+- a meaningful title: do not use the terms "Project" or "Project B" or "431" or "Study 2" in your title. (If you insist, you can use "431 Project B Study 2" as a sub-title.)
+- an easy-to-understand and easy-to-navigate table of contents using the headings and subheadings provided below
+- numbered sections and sub-sections (use **number_sections: TRUE** in your YAML)
+- the full names of the author(s), properly formatted
+- the date, properly formatted using `date: last-modified` in your YAML, and using `date-format: iso` under `format:` and `html:`)
+- no hashtags in the R results (use **knitr::opts_chunk$set(comment = NA)** to do this)
+- no warnings, and do what you can to hide unhelpful messages with `message = FALSE` as needed
+- no hidden code chunks
+
+## Headings you should use in the Study 2 report
+
+All of your work should be done in a fresh R project in a clean directory on your computer. 
+
+1. Setup and Data Ingest
+2. Cleaning the Data 
+    - Be sure to review the material (including the Tips on Cleaning Data) provided in the [Data Development section](data1.qmd) of this website, in particular regarding how to deal with missing data in Study 2.
+    - If you have any missing data which you impute as part of Study 2, provide a description of that process as a subsection here, and demonstrate that imputation was needed, specify the missing data mechanism you are assuming (MAR or MCAR are the available choices) and then demonstrate that after imputation you have a complete data set.
+3. Codebook and Data Description
+    - Follow the headings and steps laid out in the [Study 1 instructions](study1b.qmd) for this section.
+    - You should include subsections for your codebook, a listing of your analytic tibble, and a numeric description, as you did in [Study 1](study1b.qmd).
+    - Make the word **Outcome** in bold the first word of the description for your outcome in your codebook.
+    - Make the words **Key Predictor** in bold the first two words of the description for your key predictor in your codebook.
+4. My Research Question
+    - Specify your research question, with whatever introduction and background you feel is required for Dr. Love to understand its importance. If you have a pre-analytic guess as to how this will work out in your setting, please feel encouraged to include that here. The actual question should end with a question mark, and be appropriate for the nature of the analyses to come.
+5. Partitioning the Data
+    - Split the data into two samples (a model training sample containing 60-80% of the data, and a model test sample containing the remaining 20-40%.) Details on how to do this [are available here](study2a.qmd).
+    - Be sure to demonstrate that each subject in the original data wound up in either your training or your test sample.
+6. Transforming the Outcome
+    - Using your training sample, provide appropriate, well-labeled visualizations of your outcome, and investigate potential transformations of that outcome for the purpose of fitting regression models in a useful way. 
+    - Make a clear decision about what transformation (if any) you want to use. Don't use a transformation you cannot interpret.
+    - If your outcome is symmetric but with outliers, power transformations will not be of much help.
+    - If your outcome includes non-positive values, you may have to add the same value to each observation of the outcome before using power transformations. (For instance, if some of your values of your raw outcome are 0, you might add 1 to each observation before considering a transformation.)
+7. The Big Model
+    - Fit a linear regression model including all of your candidate predictors for your (possibly transformed) outcome within your training sample. Summarize its prediction equation, and the other materials available through a tidy summary of the coefficients.
+    - If you want to divide this work into subsections, that's up to you.
+8. The Smaller Model
+    - Fit a linear regression model using a subset of your predictors that is interesting, again using the training sample. Summarize its prediction equation, and the other materials available through a tidy summary of the coefficients.
+    - Your subset must include at least two predictors, including the key predictor, and a perfectly reasonable strategy for this project is simply to compare a "naive" model with the key predictor and one other predictor to the full model with all of the predictors you have identified.
+    - If you prefer to use another subset of predictors from your big model as your smaller model, that's fine, too. If you'd prefer to use an automated or semi-automated strategy for identifying your subset of predictors from the big model, that's also fine, but you must have at least two predictors in your smaller model.
+    - If you want to divide this work into subsections, that would be helpful.
+9. In-Sample Comparison
+    - Present four subsections here, as labeled below.
+    - In **Quality of Fit**, summarize the quality of fit (focusing on $R^2$, adjusted $R^2$, AIC and BIC) within the training sample.
+    - In **Posterior Predictive Checks**, comment on systematic discrepancies you observe for each model between the real and simulated data.
+    - In **Assessing Assumptions**, create and assess residual plots (specifically you should be looking at the assumptions of linearity, constant variance and Normality) for each of the two models. Also discuss whether there are any highly influential points, and if so, identify them. 
+    - In **Comparing the Models**, comment on the relative strengths and weaknesses of the two models within your training sample. A graph of some key summaries would be appropriate, accompanied by comments on assumptions and posterior predictive checks. Which model do you prefer, based on this information?
+10. Model Validation
+    - This should have four subsections, as labeled below.
+    - **Calculating Prediction Errors** Apply each of your models to the test sample to predict the outcome and do whatever back-transformation of predictions is necessary.
+    - **Visualizing the Predictions** Provide an appropriate visualization of the outcome predictions (after back-transformation) as compared to the actual outcome values, made by the two models in your test sample. Are they similar?
+        - Such plots help you see the **range** of predicted values for each model on the X axis, and compare it to the **range** of observed values on the Y axis. Many models will be overly conservative, only predicting outcomes within a small range. For instance, if your big model's range of predictions is much more in keeping with the observed range, that's a reason to like the big model.
+        - Such plots also help you see if one of the models matches the line for observed = predicted better than the other within your test sample.
+    - **Summarizing the Errors** Then summarize the following values, all on the scale of the original untransformed outcome, across the observations in your test sample, in an attractive table.
+        - square root of the mean squared prediction error (RMSPE)
+        - mean absolute prediction error (MAPE)
+        - maximum absolute prediction error (MAE)
+        - squared correlation of the actual and predicted values (validated $R^2$)
+    - **Comparing the Models** Use the results from the previous two subsections to comment on the relative strengths and weaknesses of the two models within your test sample. Which model do you prefer now?
+11. Discussion
+    - This should have four subsections, as labeled below.
+    - **Chosen Model**
+        - Specify which model you've chosen, based on your conclusions from sections 9 and 10.
+    - **Answering My Question**
+        - Use the result of this model to answer your research question in a few sentences. Comment on whether your results matched up with your pre-analysis expectations, and also specify any limitations you see on this conclusion.
+    - **Next Steps**
+        - Discuss an interesting next step you would like to pursue to learn more about this sort of research question or to go further with these data.
+    - **Reflection**
+        - Briefly describe what you would have done differently in Study 2 had you known at the start of the project what you have learned by doing it.
+12. Include the session information with **session_info()** from the `xfun` package as a separate section at the end of your report. If you make more use of AI than spell-check or RStudio's help with filling in details of functions, the place to talk about that is here, at the start of the session information section.
+

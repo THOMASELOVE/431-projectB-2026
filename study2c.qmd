@@ -1,0 +1,49 @@
+---
+title: "Study 2 Sample Report"
+author: "431 Staff"
+date: last-modified
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+A [Sample Study 2 Report](sample-study2.qmd) is now available.
+
+The Sample Study 2 Report provides a brief demonstration of an appropriate analysis for each of the required Study 2 analyses in Project B. Complete instructions for your Study 2 report [are available here](study2b.qmd). 
+
+## The Study 2 Sample Report
+
+The Sample Study 2 Report demonstrates many of the elements you would need to complete, including:
+
+- data ingest
+- cleaning the data, as well as
+- building a codebook for the final variables and describing them numerically, plus
+- partitioning the data
+- considering (and applying) a transformation
+- fitting and summarizing a big model and a small model
+- comparing the two models within the training sample
+- validating and comparing the two models within the holdout (test) sample
+
+for a simulated data set containing information on 999 subjects about high blood pressure control.
+
+## Study 2 Sample Report: The Files
+
+The [Sample Study 2 Report](sample-study2.qmd) can be viewed in HTML at [this link](sample-study2.qmd). 
+
+There is a link at the top of the HTML document where you can download the complete Quarto code used to create the Sample Study 2 Report, which might be a helpful **template** for your Study 2 report.
+
+The data file for the Study 2 Example Report is described in the Quarto and HTML files above and is found on [the 431-data website](https://github.com/THOMASELOVE/431-data). It is called:
+
+- **hbp_study.csv** (999 observations in 12 columns)
+
+The subjects are identified with a code called `subj_id` 
+ 
+## Caveats
+
+1. The Sample Study 2 Report does not precisely follow the requirements from Study 2 for certain sections, because that is a big part of your job. 
+
+2. In the Sample Study 2 Report, I don't make much of an effort to make attractive graphs. You really should.
+
+3. Outside of those caveats, the Sample Study 2 Report is meant to be accurate and reflect the level of detail I'm looking for, although it is certainly possible to expand on these demonstrations in your work, if that seems helpful. I believe the Sample Study 2 Report documents to be largely accurate, but many eyes will find some issues, eventually. 
+If people find corrections and would be good enough to email me about them, I will attempt to reflect those edits in revisions. If I do something in the Sample Study 2 Report that appears to be in conflict with the instructions for Study 2, then (a) please let me know, and (b) treat the Study 2 instructions as your guidepost in completing your work.

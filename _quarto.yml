@@ -1,0 +1,65 @@
+project:
+  type: website
+  output-dir: docs
+
+website:
+  title: "431 Project B"
+  margin-header: |
+    ![](/cwru_logo_200.png)
+  margin-footer: |
+    ![](/431_logo_2026.png){width=70%}
+  page-footer: "Fall 2026: 431 Project B Instructions"
+  navbar:
+    background: "#053926"
+    left:
+      - href: index.html
+        text: "Home"
+      - text: "The Data"
+        menu: 
+        - href: data1.qmd
+          text: "Data Development"
+        - href: data2.qmd
+          text: "Using NHANES data"
+        - href: data3.qmd  
+          text: "Using Something Else"
+      - href: register.qmd
+        text: "Registration"
+      - text: "Study 1"
+        menu:
+        - href: study1a.qmd 
+          text: "Required Study 1 Analyses" 
+        - href: study1b.qmd
+          text: "Study 1 Report Specifications"
+        - href: study1c.qmd
+          text: "Study 1 Sample Report"
+      - text: "Study 2"
+        menu:
+        - href: study2a.qmd
+          text: "Required Study 2 Analyses" 
+        - href: study2b.qmd
+          text: "Study 2 Report Specifications"
+        - href: study2c.qmd
+          text: "Study 2 Sample Report"
+      - href: self_eval.qmd
+        text: "Self-Evaluation"
+      - href: checklist.qmd
+        text: "Checklist"
+      - href: tipsheet.qmd
+        text: "Tip Sheet"
+    right:
+      - href: https://thomaselove.github.io/431-2026/contact.html
+        text: "Contact Us"
+      - href: https://thomaselove.github.io/431-2026
+        text: "431 Homepage"
+
+
+format:
+  html:
+    theme: zephyr
+    date-format: iso
+    toc: true
+    link-external-icon: true
+    link-external-newwindow: true
+
+editor: source
+

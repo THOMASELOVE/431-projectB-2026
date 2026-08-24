@@ -1,0 +1,42 @@
+---
+title: "Using Something other than NHANES"
+author: "431 Staff"
+date: last-modified
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+This page describes what to do if you want to use something other than NHANES data for Project B. If you want to use NHANES data, then you should [visit this page instead](data2.qmd).
+
+In either case, be sure to read through and verify that your data meet the Data Requirements for Study 1 and Study 2 described on our [Data Development](data1.qmd) page.
+
+To encourage people to use data other than NHANES, there is a five-point bonus in the final project B grade available for all projects which use non-NHANES data.
+
+## If you're using data from another source
+
+If you don't want to use NHANES data, you will need to obtain Dr. Love's approval through the registration form. Here are the data specifications.
+
+1. The data must be **freely available** to all, and there must be no risk associated with your using the data for this project of any kind. Your use of the data for this project must not be subject to IRB approval, or the approval of anyone other than you (so, for example, if you would also need the approval of a principal investigator to use the data, that won't work for Project B.) 
+    - There can be no protected health information or protected information or privacy risk of any kind involved with the data.
+
+2. Dr. Love will need to see your source for the data in its entirety. You will need to be able to provide a link to a web page from which you (and Dr. Love and anyone else) can **download the raw data** as part of your [registration for the project](register.qmd) in early November.
+
+3. The data must be cross-sectional, rather than longitudinal.
+    - The only exception to this rule would be data where a baseline set of predictors is measured, which might include the baseline measure of the outcome, and then the outcome (and only the outcome) is measured at a later time.
+
+4. The data must not be hierarchical, so everything must be measured at the subject level.
+    - We cannot have subjects nested in states, for instance, with some variables measured only at the state level included in your set of variables.
+    - The data you select must in all ways be suitable for the analyses required in Project B.
+
+5. The data must not be from County Health Rankings, nor can they appear in any teaching repository of data (including the ones at Cleveland Clinic), nor can they be data from our 431 materials, including Lab assignments, Course Notes or Class Slides. 
+
+6. The data must not be pre-compiled as part of an R package, but rather available in raw form and ingested into R by you.
+
+7. Dr. Love has an extremely strong preference for data that describe individual people or animals, as opposed to other types of "subjects". Who the subjects (rows) of your data are must be completely clear. No genomics data, either, in Project B - Dr. Love is insufficiently familiar with that sort of data.
+
+8. Dr. Love can refuse to let you use a data set for any reason at all, and this includes the reason that he's tired of the data set.
+
+Please visit the [Data Requirements for Study 1 and Study 2](data1.qmd) on the Data Development page to ensure that your data will meet all necessary requirements.
+

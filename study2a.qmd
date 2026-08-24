@@ -1,0 +1,44 @@
+---
+title: "Required Study 2 Analyses"
+author: "431 Staff"
+date: last-modified
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+Once you have identified your Project B data set, you will produce a report that demonstrates that you have accomplished the following:
+
+1. Identify a quantitative outcome. 
+    - For purposes of this project, we will require your quantitative outcome to contain more than 15 unique values.
+2. Identify a key predictor (which may be either quantitative or categorical.)
+    - If the key predictor is categorical, it must have 3-6 categories, and each category must contain at least 30 observations.
+3. Identify 3-8 other predictors of your outcome (demonstrating that either your key predictor or at least one of the "other" predictors is multi-categorical with 3-6 categories.)
+4. Define a research question related to how effectively your key predictor predicts your quantitative outcome, while (possibly) adjusting for the other predictors.
+5. Steps 1-3 will yield a set of 6-11 variables (an outcome, a key predictor, 3-8 other predictors, and a subject identifier). Use those selections to create your analytic data set.
+    - You must have between (500 and 7,500 observations if you're using NHANES; 250 and 10,000 observations if not using NHANES) with complete data on all 6-11 variables included in your Study 2 analytic tibble. No other variables should be included in your Study 2 analytic tibble.
+6. Clean the data in R, and this includes the creation of appropriately labeled (and if necessary, collapsed) factors for all categorical variables, and the investigation and decision-making regarding missing values, numbers of unique values and impossible values.
+7. Complete any imputation required to deal with missing data. Use single (simple) imputation with the `mice` package to create your imputed data. Do not impute your outcome or key predictor - you should filter to complete cases on those two variables.
+8. Use appropriate tools to provide useful numerical summaries for all data you will study, after all cleaning, so that these results describe the exact variables you will be modeling in the remaining work. Provide a clear note describing how much imputation you did.
+9. Partition the clean data into a model development (also called a model training) sample (60-80% of the data) and a model testing (also called a model validation) sample (the remaining 20-40%) using the approach recommended in the data .
+    - Suppose you had a tibble called **original_data** which identified its subjects with a **subjID** variable, and you wanted to place 75% of your data for development into **training_sample** and the rest into **test_sample**. You could do that with the following code...
+    
+```{r, eval = FALSE}
+library(tidyverse)
+
+set.seed(431) # pick a different seed than this
+
+training_sample <- original_data |> slice_sample(prop = 0.75)
+
+test_sample <- 
+    anti_join(original_data, training_sample, by = "subjID")
+```
+    
+10. Provide appropriate, well-labeled visualizations of your outcome, and investigate potential transformations of that outcome for the purpose of fitting regression models in a useful way. Whatever transformation (including no transformation at all) should be used for the steps that follow.
+11. Produce two competitive models fit using least squares (rather than a Bayesian approach) for predicting your outcome using your clean data that provide evidence regarding your research question.
+    - One of these models should be the full model with all candidate predictors included.
+    - Your other model should be a well-motivated subset of your full model, that at least includes the key predictor and one more predictor. 
+12. Assess the performance of your two models (full model or subset) and come to a conclusion about which is better. This assessment should includes both in-sample (predictive performance and adherence to assumptions) and holdout sample (predictive quality) assessments. Be sure to attend to back-transformation properly should that be necessary, in evaluating the quality of predictions.
+13. Use the results of the model you chose to answer your research question, and then describe the limitations of this study and next steps you would like to pursue.
+14. Just to reiterate, in Study 2, you should explicitly state that you are assuming that "missing at random (MAR)" is the most appropriate missing data mechanism and then use single imputation for Study 2, with two exceptions: (1) I don't want you to impute your outcome or key predictor, so you will need to filter to complete cases on those variables, **and** (2) you may decide to add on a multiple imputation summary of parameters for the final model if you choose, as we'll discuss in Class.

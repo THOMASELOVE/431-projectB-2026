@@ -1,0 +1,115 @@
+---
+title: "431 Project B Tips"
+author: "431 Staff"
+date: last-modified
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+library(easystats)
+library(tidyverse)
+```
+
+## What is this?
+
+Most of these tips are motivated by the last few years of similar projects.
+
+- This should be a good set of things to review (along with [the Project B  Checklist](checklist.qmd)) as you're preparing your final materials for submission. 
+
+## YAML and Setup issues
+
+1. **No hashtags preceding R results.** I would like you to be sure that your R output is not preceded by hashtags. The easiest way to ensure this is to include the following code at the top of your code, where you load your R packages.
+
+```
+knitr::opts_chunk$set(comment = NA)
+```
+
+2. **Theming gg-Plots.** I would like you to use a ggplot theme like `theme_bw()` or `theme_lucid()` or another of your choosing globally, rather than including it in the code of every individual plot you build. So include something like 
+
+```
+theme_set(theme_bw())
+```
+
+immediately after you load the tidyverse, and then don't include theming of this sort in your individual plots, unless you are deliberately adding some specialized theming elements for a specific plot.
+
+3. **Clean List of R Packages**. Your list of R packages should be clean for each study, which means:
+
+- tidyverse is loaded last, and easystats is loaded just before it
+- none of the core tidyverse packages ([core list is here](https://www.tidyverse.org/packages/#core-tidyverse)) are loaded
+- all packages you will load for this study are in one place
+- no packages are loaded that you don't use in your work.
+
+## General Issues
+
+4. **Check your HTML for plot-text transition problems.** One of the hardest things to get people to do is add empty lines in R Markdown after they create a plot or heading. Forgetting to do this can cause your plots to show up in the HTML with the start of the next paragraph shown to the right of the plot instead of below the plot. Make sure you avoid this mistake. Also, **Hit ENTER after every pipe and + in your code so that you avoid scrollable windows for code in your HTML output.**
+
+5. **Missing Data Mechanism and Dealing with Missingness.** You need to have an explicit statement about your assumed missing data mechanism, including either the term **MCAR**, **MAR** or **MNAR**, in both Study 1 and Study 2, and you have to be specific about what you've done. This should be part of your HTML file everywhere where you impute (as in Study 2 variables other than your outcome and key predictor) or filter to complete cases (as in Study 1 and with your Study 2 outcome and key predictor). None of your analyses (in Study 1 or Study 2) should involve missing values: either you should have imputed missing values or you should have filtered to complete cases.
+
+6. **Spell check doesn't check headings and subheadings.** Using spell check in R Studio is trivial (just hit F7) and important, but be aware that you still need to read your HTML to be sure that you don't have problems. A particular issue is that the spell check **doesn't check your headings and subheadings** so you'll want to pay especially close attention to those pieces. In particular, I've seen several people misspell the word "Transformations" in section 6 of Study 2.
+
+7. **Your confidence level is 90%, not 95%.** All of Project B uses a 90% confidence level, so the phrase "*p* < 0.05" is 100% irrelevant to this work. I would also strongly suggest you search through your work and eliminate the terms "statistical significance" and even "significant" unless you have a remarkably good reason to include them.
+
+8. **Order multi-categorical factors properly.** Please respect the ordering of multicategorical variables, especially in Analyses C and E for Study 1. Be sure that you adjust the levels of your factor so that they use the natural order of the variable. If you have a nominal multi-categorical variable, like race/ethnicity, in Study 2, then I suggest you order the levels of that factor variable from largest to smallest in terms of number of subjects, so that the baseline group will be the one that appears most frequently in your data.
+
+9. **Don't change numeric variables to factors.** If you change a numeric variable to a factor, and then change it back into a numeric variable, that will create many, many problems. Don't do that. Instead, create a new factor variable if you're going to convert a numeric variable into categories.
+
+## NHANES issues
+
+10. **NHANES isn't a random sample.** Don't suggest or state that it is. So the NHANES sampling procedure is a limitation in terms of you cannot really generalize to the US population with NHANES unless you use survey weighting.
+
+11. **Specify your approach if not standard.** If you're using NHANES data but not using adults ages 21-79, be sure that you've made that abundantly clear everywhere where it's relevant, including at least in the Data Description section for Study 1 and Study 2. Also, be sure to very clearly specify whether you're using 2017-2020 or 2021-2023 NHANES data.
+
+## Study 1 Issues
+
+12. **Study 1 Analyses must stand on their own.** Each of your four Study 1 Analyses should stand on its own, in the sense that you should specify the relevant group of subjects, the exposure and the outcome in words at the start of each of those analyses. Please label these as Analysis A, B, C, D or E, (leaving out one, of course) as I did in building the assignment.
+
+13. **Describe the direction and size of estimated effects.** In Project B, you should have no statements about statistical significance or any synonym. Estimate effects whenever possible, including a confidence interval. This is easy for Study 2 and for Study 1 Analyses A, B, and D, I think, but more challenging for C and E. Be sure to carefully focus your description of your result on the direction and size of the effect you estimate, in the context of your problem. 
+
+- For instance, a terrible sentence in Analysis B would be something like "We saw a significant difference between males and females on mean systolic blood pressure."
+- A better sentence would be something like "The mean systolic blood pressure for males was 3 mm Hg higher than that of females, with a 90% CI of (1, 5)." Notice that this better sentence includes the actual units of measurement, and not something generic like "points".
+
+14. **Paired vs. Independent Samples.** In Analyses A and B for Study 1, be sure that you provide a logical argument near the top of your work for why the data you are studying use (in Analysis A, paired) (in Analysis B, independent) samples. 
+
+15. **Simplifying Conclusions in Analysis D.** In Analysis D of Study 1, in writing up your conclusions after forming an appropriate 2x2 table, and specifying the probabilities of obtaining your outcome within each exposure group as estimated at the top of the table, it is completely sufficient to provide your interpretation of either:
+
+- the relative risk and the odds ratio and their confidence intervals, or
+- the relative risk and the difference in probabilities, with their confidence intervals.
+
+16. **Describe some percentages in Analysis E.** In Analysis E for Study 1, you should focus your interpretation of the result from your table and chi-square test on a comparison of interesting percentages from your table, in addition to the *p* value and a visualization of the results.
+
+## Study 2 Issues
+
+17. **Residual Plots should be tall.** When building residual plots, whether with `check_model()` or something else, make them tall, by incorporating `r, fig.height = 8` into your chunk header for that code. For example, this is the default size:
+
+```{r}
+m1 <- lm(mpg ~ disp + wt, data = mtcars)
+check_model(m1)
+```
+
+and below is what you get if you add `#| fig.height: 8` at the start of the code chunk.
+
+```{r}
+#| fig.height: 8
+
+m1 <- lm(mpg ~ disp + wt, data = mtcars)
+check_model(m1)
+```
+
+This helps us see things more effectively, especially with large sample sizes in the plots. So please do it.
+
+18. **Box-Cox.** In Study 2, in the Transformation of Outcome section, please show the Box-Cox analysis immediately after the starting graphical summary (as opposed to the strange approach I used in the template) and then either use it (which is fine) or specify why you've decided not to use it. Remember that a Box-Cox $\lambda$ near 0 suggests a logarithmic transformation, and that a Box-Cox $\lambda$ of 1 indicates no transformation.
+
+19. **Using Validated R-Square**. In Study 2, you should use the validated R-square you develop in section 10.3.2 as part of your discussion in both Sections 10.4 and 11.1. (in addition to whatever else you decide to use) to help describe how successful your winning model is. You should also reflect in Section 11.1 (Chosen Model, within the Discussion section) on the relationship between the original training sample R-square you observed for your chosen model and the validated R-square you calculated for that model in section 10.3.2. Here, you want to assess how overconfident or underconfident your original R-square was, basically.
+
+## And finally...
+
+20. **The Discussion section is important.** The piece of your HTML that I guarantee I will be looking at to help me settle on your final grade is the **Discussion** section in Study 2. I expect to see meaningful paragraphs there in response to the required elements. So don't neglect that material just because it comes last.
+
+Don't forget to submit:
+
+- your Study 1 qmd and HTML, and your Study 2 qmd and HTML to Canvas no later than the deadline.
+- your data, if you're not using NHANES, to Canvas no later than the deadline,
+- your [Project B self-evaluation form](self-eval.qmd) after you submit your Canvas materials, and no later than the deadline.
+- your CWRU class evaluation by their deadline.
+
+Thanks and good luck to you all!

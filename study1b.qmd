@@ -1,0 +1,81 @@
+---
+title: "Study 1 Report Specifications"
+author: "431 Staff"
+date: last-modified
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+Produce a beautiful HTML report containing 8 main sections, as described below. It should include:
+
+- a meaningful title (and subtitle) that does not use any of "Project B", "Study 1" or "431". I want a real title, that at least describes what you're doing - be more specific than just "Exploring NHANES 2017-20 Responses".
+    - If you insist, you can use "431 Project B Study 2" as a sub-title.
+- an easy-to-understand and easy-to-navigate table of contents using the headings and subheadings discussed below
+- Eight properly numbered sections with appropriately numbered sub-sections (use **number_sections: TRUE** in your YAML)
+- the full names of the author(s), properly formatted
+- the date, properly formatted using `date: last-modified` and later `date-format: iso` under the format `html:`.
+- no hashtags in the R results (use **knitr::opts_chunk$set(comment = NA)** to do this.)
+- no warnings, and do what you can to hide unhelpful messages with `message = FALSE` as needed
+- no hidden code chunks
+
+## Headings you should use in the Study 1 report
+
+All of your work should be done in a fresh R project in a clean directory on your computer. 
+    - If you are working with NHANES data, your directory should include a **data** subdirectory, in which you will probably need to place the **Love-431.R** script.
+    - If you need to ingest non-NHANES data, then your **data** directory should also include the raw data files.
+
+1. Setup and Data Ingest
+    - Be sure to load all necessary packages and ingest your data, either by reading it in with nhanesA or by reading in your raw non-NHANES data. Load the tidyverse last and do not load core packages from the tidyverse separately.
+2. Cleaning the Data 
+    - Be sure to review the material (including the Tips on Cleaning Data) provided in the [Data Development section](data1.html) of this website.
+    - Note that it's only necessary to clean the variables you will actually use in your four analyses below. Select only those variables (including the subject identifier) here when you create your analytic tibble.
+    - I also suggest applying **janitor::clean_names** at the start, but I wouldn't otherwise change variable names if you're not changing the meaning of the variables. If you want to change the names, you can, but then you must indicate that in your codebook, and do the renaming before you show the codebook.
+    - If you create a new categorical variable from an existing quantitative variables, do so in this section of your report, and then refer to that work in the analyses below when you use the new variable.
+3. Codebook and Data Description    
+    - The first thing that should appear in the section is a description of the subjects of your study. 
+        - As an example of what I'm looking for, suppose that you are working with NHANES 2017-2020 data and have identified 3,500 adults between the ages of 21 and 79 who have complete data on the variables in your final data set. In that case, the description I would want to see would be: "3500 adults ages 21-79 participating in NHANES 2017-2020 with complete data on the variables listed in the table below."
+    - In the first subsection in this section, labeled **Codebook**, present a codebook where you list all of the variables you will actually use in your four chosen analyses, in the format you will use in those analyses. Do not include any other variables (besides the subject identifying code) in the codebook.
+    - Present your codebook in a table, with either three or four columns. 
+    - Place the variable name you will use in your analyses in the left-most column. The Codebook lists all of the variables you will use in your analyses (plus the subject identifying code). If you're working with NHANES data, you should include both SEQN (subject code) in this list.
+    - The type of variable should be Quant (for quantitative variables), Binary (for two-category variables), or X-cat for multi-category variables) where X should either be 3, 4, 5 or 6, to indicate the number of levels in the variable.
+    - If you've changed a variable name (other than the obvious changes made by **clean_names**) from what you imported initially from your data source, add a final column where you specify the original variable name. The original name alone is sufficient here. 
+        - For those working with NHANES data, we will already be able to tell which data set in NHANES you used to obtain this variable from your initial pull of the data with the nhanesA package, so don't specify the data set name again here.
+
+Make sure your Codebook looks nice and is easy to read in your HTML result. 
+    - If you decide to rename any of the variables from the names provided with the raw data, you should specify your new name and the original name in your codebook. 
+    - Your codebook should also describe each of the variables you are using and specify whether they are quantitative, binary or multi-categorical.
+    - In the second subsection (called **Analytic Tibble**), list your clean tibble that the codebook describes, so we can see it is a tibble. Only the variables in your Codebook should appear.
+    - In the third and final subsection here, labeled **Data Summary**, provide useful descriptive summaries of each variable in your codebook other than the subject identifying code. You can use `describe` from `Hmisc` or another option of your choosing to accomplish this. You needn't provide graphical summaries here, and include only variables that are in your codebook.
+
+Those first three sections should then be followed by any four of the following five sections (which will be sections 4-7 in your report)...
+
+- Analysis A: Comparing 2 Means with Paired Samples
+- Analysis B: Comparing 2 Means with Independent Samples
+- Analysis C: Comparing X Means with Independent Samples (where you'd substitute in the number of means you're comparing for X)
+- Analysis D: Analyzing a 2x2 table
+- Analysis E: Analyzing a JxK table (where you substitute in the values for J and K)
+
+### Within each of the four analyses you present, I'd have four (numbered) subsections:
+
+1. The Question
+    - Start by describing what you want to study, and then specify a research question (which should end with a question mark and be something you can resolve with the planned analysis.)
+    - Don't boil the ocean here. You're looking for a research question that can be reasonably addressed using your data, so it has to be pretty straightforward.
+    - If you have a pre-existing belief about what will happen, before you look at the data, please feel encouraged to include a statement about that belief before specifying your question.
+2. Describing The Data 
+    - This should start with specifications of what each of the variables you are studying in this analysis actually mean.
+    - Your cleaning, creation of factors and other data management activities for each analysis should already have been shown in earlier sections. Please refer back to that section and don't repeat what you've already done. Be sure that the Codebook you provided describes all variables you are using in your analyses here.
+    - Provide numerical summaries and visualizations of interest that are relevant to the analysis, and comment on any issues you observe.
+3. Main Analysis
+    - Show your work, and comment on whatever decisions you make.
+    - Be sure to present and justify the assumptions you are making.
+4. Conclusions
+    - Answer your research question, by clearly linking the analytic results to what you were asking at the start. 
+    - If you can see a logical next step for the analysis of the question you asked, specify it. Also, if you specified a pre-existing belief about what would happen, reflect on that in light of the data.
+
+## And finally...
+
+As the final section of your report (which should be section 8), include the session information using `session_info()` from the `xfun` package. If you make more use of AI than spell-check or RStudio's help with filling in details of functions, the place to talk about that is here, at the start of Section 8.
+
+

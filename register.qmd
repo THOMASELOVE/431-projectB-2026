@@ -1,0 +1,47 @@
+---
+title: "Registration for Project B"
+author: "Thomas E. Love, Ph.D."
+date: last-modified
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+## The Registration Form
+
+You will use [this Google Form](https://tinyurl.com/431-2026-register-projectB) to register for Project B. The early November deadline (for Project B Registration) is specified on [the Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
+
+- [The form](https://tinyurl.com/431-2026-register-projectB) will open by 2026-10-16.
+- Your response will be automatically emailed to your CWRU email once you submit the form. If you need to edit your submission, you can do so with the link included in that email.
+- If you are working with a partner, there will be an opportunity to indicate that on this form, and only one of you (you or your partner) should complete the whole thing, while the other person needs to only complete a few of the items, as you'll see.
+
+Once your form is complete, Dr. Love will review your submission and get back to you to tell you whether your proposed approach is approved or not. If not, you'll have to edit your submission and [resubmit the form](https://bit.ly/431-projB-registration-2025).
+
+## What Do You Need To Do Before Filling Out the Form?
+
+Five things.
+
+1. Determine whether or not you will work with a partner, and coordinate with that person to get all necessary tasks completed.
+
+2. Identify whether you will use NHANES data or something else.
+
+3. Obtain the data and figure out which variables you will use in Study 1 and in Study 2, making sure to meet the specifications for each study specified in the [data development instructions](data1.qmd).
+
+4. Within your Study 2 variables, identify the number of observations in your data set with complete data on your variables (including your study ID code, your outcome, your key predictor and your 3-8 additional predictors).
+
+5. Identify which times on December 4-9 work for you (and your partner) among those that are available. You'll need to select at least five of the 20 available periods in total, and this must include times on at least two different dates. The time slots are specified below.
+
+### Time Periods for Presentations
+
+Your actual presentation time will be 20 minutes, but we have divided the schedule into longer blocks of 75 minutes below. During each block, we will schedule up to 3 presentations. On site means Dr. Love's office at the School of Medicine at CWRU, and Zoom means via Zoom. 
+
+Note that December 7 is a reading day, and the last day of class (for all classes) is December 4. Regardless of when you give your presentation, your final report is due at the deadline (December 11 at noon) in [the Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
+
+Note that you will need to select at least 5 of the available 20 time periods below, and that those selections cannot all be on the same date. You will also have the opportunity to identify your top choice for your presentation and your preference for Zoom vs. On Site in the form, but I will not guarantee that I will match those preferences.
+
+:::{.callout-important}
+
+Available time slots will be posted here in mid-October.
+
+:::

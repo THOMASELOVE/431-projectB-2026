@@ -1,0 +1,128 @@
+---
+title: "Using NHANES Data"
+author: "431 Staff"
+date: last-modified
+---
+
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+If you select the NHANES option, you will use data from the [National Health and Nutrition Examination Survey](https://wwwn.cdc.gov/nchs/nhanes/Default.aspx). 
+
+If you decide to use some other data set instead for Project B, then you should [visit this page](data3.qmd).
+
+In either case, be sure to read through and verify that your data meet all requirements described on our [Data Development](data1.qmd) page.
+
+## About NHANES (from [the NHANES website](https://www.cdc.gov/nchs/nhanes/about_nhanes.htm))
+
+> The National Health and Nutrition Examination Survey (NHANES) is a program of studies designed to assess the health and nutritional status of adults and children in the United States. The survey is unique in that it combines interviews and physical examinations. NHANES is a major program of the National Center for Health Statistics (NCHS). NCHS is part of the Centers for Disease Control and Prevention (CDC) and has the responsibility for producing vital and health statistics for the Nation.
+
+> The NHANES program began in the early 1960s and has been conducted as a series of surveys focusing on different population groups or health topics. In 1999, the survey became a continuous program that has a changing focus on a variety of health and nutrition measurements to meet emerging needs. The survey examines a nationally representative sample of about 5,000 persons each year. These persons are located in counties across the country, 15 of which are visited each year.
+
+> The NHANES interview includes demographic, socioeconomic, dietary, and health-related questions. The examination component consists of medical, dental, and physiological measurements, as well as laboratory tests administered by highly trained medical personnel.
+
+> Findings from this survey will be used to determine the prevalence of major diseases and risk factors for diseases. Information will be used to assess nutritional status and its association with health promotion and disease prevention. NHANES findings are also the basis for national standards for such measurements as height, weight, and blood pressure. Data from this survey will be used in epidemiological studies and health sciences research, which help develop sound public health policy, direct and design health programs and services, and expand the health knowledge for the Nation.
+
+## General Advice for NHANES: Learning About The Available Data
+
+The links in this section go to the [Survey Data and Documentation section](https://wwwn.cdc.gov/nchs/nhanes/Default.aspx) of the [NHANES website](https://www.cdc.gov/nchs/nhanes/index.htm).
+
+1. We strongly encourage the use of either [the Aug 2021 - Aug 2023 NHANES data](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics&Cycle=2021-2023) or [the NHANES 2017 - March 2020 Pre-pandemic data](https://wwwn.cdc.gov/nchs/nhanes/continuousnhanes/default.aspx?cycle=2017-2020) for Project B.
+    - This are the two most recent public data releases that are fairly complete.
+2. You are required to use variables taken from **at least three** different NHANES data sets. This must include the Demographics data set, in addition to two other data sets taken from at least one of three other available data groups (Examination, Laboratory and Questionnaire) in your chosen NHANES period.
+    - The Demographics data group for [2021-2023](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics&Cycle=2021-2023) or for [2017-2020](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics&Cycle=2017-2020) should be part of all projects, and it contains a single data set.
+    - The Examination data group for [2021-2023](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&Cycle=2021-2023) or for [2017-2020](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&Cycle=2017-2020) includes several data sets.
+    - The Laboratory data group for [2021-2023](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Laboratory&Cycle=2021-2023) or for [2017-2020](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Laboratory&Cycle=2017-2020) contains many data sets.
+    - The Questionnaire data group for [2021-2023](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Questionnaire&Cycle=2021-2023) or for  [2017-2020](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Questionnaire&Cycle=2017-2020) also contains many data sets.
+    - We do not want you to use data from the Dietary data group or the Limited Access data in Project B.
+3. You will use the **nhanesA** package in R to import and work with the available data. This package is part of our list of recommended packages for installation.
+4. Note that none of your work will be using the sampling weights which are a key part of NHANES. Thus, none of your results from Project B will be truly representative of the national population. That's OK for this exercise.
+
+## Getting the NHANES data
+
+Visit the NHANES website and identify the data you want to view.
+
+- For example, the Demographic Variables and Sample Weights for NHANES 2017-March 2020 [are described here](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics&Cycle=2017-2020), and [here is the 2021-2023 version](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics&Cycle=2021-2023).
+- Each NHANES data set is associated with a Doc File (which stands for Data Documentation, Codebook and Frequencies). For instance, [here's the one](https://wwwn.cdc.gov/Nchs/Nhanes/2017-2018/P_DEMO.htm) for Demographics in 2017-March 2020 and [here's the 2021-2023 version](https://wwwn.cdc.gov/Nchs/Data/Nhanes/Public/2021/DataFiles/DEMO_L.htm). This file can be viewed online (it's an HTML file) and it will tell you what variables are included in that data set.
+- Each NHANES data set is available as a SAS transport file. For example, it's the **P_DEMO** file for Demographics in 2017-March 2020, [as you can see here](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics&Cycle=2017-2020) and **DEMO_L** for [Demographics in 2021-2023](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Demographics&Cycle=2021-2023).
+
+## Using the nhanesA package
+
+Once you've selected the data sets from NHANES that you want to use in your project (remember that you need at least 3), the **nhanesA** package in R can be used to obtain them. 
+
+Here's a little vignette [introducing nhanesA](https://cran.rstudio.com/web/packages/nhanesA/vignettes/Introducing_nhanesA.html) from Christopher Endres, who built the package. The key functions in the **nhanesA** package that I think you might use are those described in that vignette, but the main one is simply called **nhanes**.
+
+### An Example
+
+For example, suppose we want to load the Blood Pressure data from the [2017-18 Examination files](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&Cycle=2017-2018) at NHANES (contained in the `BPX_J` data file) into a tibble called `bp_data` in R. 
+
+- Note that you will instead use either 2017-March 2020 or 2021-2023 data, which for Blood Pressure would be, according [to this page ](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&Cycle=2017-2020) the `P_BPXO` file for 2017-2020, or, [from here](https://wwwn.cdc.gov/nchs/nhanes/search/datapage.aspx?Component=Examination&Cycle=2021-2023) the `BPXO_L` file for 2021-2023, rather than `BPX_J`.
+
+We would use the following code, which will take a few minutes to run.
+
+```{r, eval = FALSE, message = FALSE, warning = FALSE}
+library(nhanesA)
+library(tidyverse)
+
+bp_raw <- nhanes('BPX_J') |> tibble()
+
+saveRDS(bp_raw, "data/BPX_J.Rds")
+```
+
+Once you've downloaded the file once, you should save it as an R data frame, and then comment out the initial code you used to pull down the data in R. Then, when you rerun, it'll be all set. Remember to create a data sub-folder in your R Project B directory before you run this code.
+
+So your final presentation in Project B should instead look like this, which will run much more quickly.
+
+```{r, message = FALSE, warning = FALSE}
+library(nhanesA)
+library(tidyverse)
+
+# pull in data from BPX_J from NHANES and save it
+
+# bp_raw <- nhanes('BPX_J') |> tibble()
+
+# saveRDS(bp_raw, "data/BPX_J.Rds")
+
+# Now that data are saved, I can just read in the tibble
+
+bp_raw <- readRDS("data/BPX_J.Rds")
+```
+
+## Merging NHANES files
+
+You will need to include data from multiple tibbles (data sets) pulled down in your project. I suggest you first select only those variables you intend to use in your analytic data file from each individual tibble you have created. This should always include the SEQN variable in every tibble, since that is what you will use to match up responses across those tibbles.
+
+- Your final analyses should be based on somewhere between 500 and 7,500 complete cases from **either** the NHANES 2017-March 2020 data **or** the NHANES 2021-2023 data.
+
+To merge a demographics tibble called **DEMO** with a **BPX** tibble to create a tibble called **NEW** that contains the variables from both **DEMO** and **BPX** for all of the subjects contained in **DEMO**, I'd use a **left_join**, as follows.
+
+```{r, eval = FALSE}
+NEW <- left_join(DEMO, BPX, by = "SEQN")
+```
+
+I'd then use another **left_join** to merge this NEW result with another tibble (say, the **HDL_J** tibble) and so on.
+
+```{r, eval = FALSE}
+NEW2 <- left_join(NEW, HDL_J, by = "SEQN")
+```
+
+Then, when I was done merging and cleaning the data I would be sure to save that result as a new Rds file, just in case I needed it again.
+
+## Which variables / subjects should I use?
+
+That's up to you. Find variables of interest in the description files, and pull them out and see if they will work for you.
+
+- Focus on subjects who have a **RIDSTATR** value of 2 (meaning they were both interviewed and examined) - this variable is part of the Demographics file. 
+    - For example, in 2017-March 2020, there are 14,300 such subjects and in 2021-2023, there are 8,860.
+    - If you get the names from using the `nhanes()` function instead of numbers, you can either work with those names, or try adding `translated = FALSE`, as in `demo <- nhanes("DEMO_L", translated = FALSE)` to your call to the `nhanes()` function.
+- I encourage you to not use subjects listed with ages of 80 (RIDAGEYR = 80) since that's a catch-all for all subjects ages 80 and older.
+    - For 2017-March 2020, of the 14,300 listed above, 13,724 are less than 80.
+    - For 2021-2023, of the 8,860 listed above, 8,335 are less than 80.
+- You should either use children (ages 0-20) or adults (ages 21-79) in your final analyses, and not both together.
+    - Some variables are only collected on children, others only on adults.
+- Do not filter to complete cases in creating your data. Maintain the missing values.
+    - In many cases, you should have well over 5,000 observations in total, but depending on what you select, you may have a much smaller subset, and you should be able to explain to us why that is the case, if it is. 
+    - For example, if you're studying something that is only measured in females, or in children, you'll have a smaller sample for that reason, and you need to make that clear to us in your report. At a minimum, you will need at least 500 complete cases even if you're using heavily filtered NHANES data.
+

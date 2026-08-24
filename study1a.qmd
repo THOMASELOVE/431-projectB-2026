@@ -1,0 +1,54 @@
+---
+title: "Required Study 1 Analyses"
+author: "431 Staff"
+date: last-modified
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+In your four analyses (chosen from five options), you will be doing:
+
+- Descriptive and exploratory summaries of the data across the groups for each of your chosen outcomes, including, of course, attractive and well-constructed visualizations, graphs and tables.
+- Comparisons of the population mean difference for at least one quantitative outcome across a set of two (or three) groups, including appropriate demonstrations of the reasons behind the choices you made between parametric, non-parametric and bootstrap procedures.
+- Comparisons of population proportions for categorical outcomes across exposure groups, including appropriately interpreted point estimates and confidence intervals, where available.
+
+## Data Management 
+
+- All data merging and cleaning must be included in your Quarto report, starting from the raw data obtained either through the `nhanesA` package or via reading in your non-NHANES raw data, so that we can replicate your work.
+- You can use the data as they were collected (quantitative, binary or multi-categorical), but you can also create categorical variables from the quantitative variables provided, should that be of interest in one or more of your analyses. 
+    - Should you decide a categorical variable from a quantitative one, be sure to describe that process carefully, and demonstrate that each level of your created categorical variable contains the minimum number of observations specified on the [Data Development page](data1.html). 
+
+## Analyses You'll Do
+
+You will complete **any four** of the following five Analyses, and present these results in your Study 1 Report.
+
+For each of these analyses, you will provide complete code (including whatever you did to clean the raw data for the variables you are studying), appropriate visualizations and detailed explanations of your analytic decisions, and conclusions. **Use a 90% confidence level for all Study 1 work, please**. 
+
+- Again, if you are using NHANES data, you will need between 500 and 8,750 observations with a minimum of 500 observations containing complete data on all of the variables you will use in Study 1.
+- If you are using any other data source, you will need between 250 and 10,000 observations, and at least 250 with complete data on all variables you will use in Study 1.
+- In Study 1, you should explicitly state that you are assuming that the "missing completely at random (MCAR)" mechanism for missing data, and then filter until you have only complete cases.
+
+Each analysis should be self-contained (so that I don't have to read Analysis A first to understand Analysis C, for example). Present each new analysis as a subsection with an appropriate heading in the table of contents.
+
+#### Analysis A. Compare two means/medians using paired samples
+
+Here, you will need to identify two quantitative variables (outcomes) which are paired (so that they have a natural link between them, and use the same units of measurement.) You'll analyze the results and build a confidence interval for the population mean difference with an appropriate t-based or bootstrap procedure. Again, we require that all variables treated as quantitative in Study 1 (Analyses A, B, or C) contain at least 15 unique values.
+
+#### Analysis B. Compare two means/medians using independent samples
+
+Here, you will need to identify one quantitative (outcome) and one categorical variable (binary - 2 levels.) You'll analyze the results and build a confidence interval for the difference in means with an appropriate t-based or bootstrap procedure. Note that it's generally easier to find independent samples comparisons than paired samples comparisons in most of the data I expect you'll be using. This would require a quantitative outcome (with at least 15 unique values), and a binary categorical variable which divides the data into two subgroups, so that each subgroup has a minimum of 30 observations.
+
+#### Analysis C. Compare 3-6 means/medians using independent samples
+
+Here, you will need to identify one quantitative (outcome) and one categorical variable (multi-categorical with 3-6 levels.) Here, you should be thinking about an analysis of variance with either a set of Holm (probably better if you have unequal sample sizes in your groups) or Tukey HSD (better if you have a fairly balanced design) pairwise comparisons. This would require a quantitative outcome (with at least 15 unique values), and a multi-categorical variable with 3-6 categories which divides the data into subgroups, so that each subgroup has a minimum of 30 observations.
+
+#### Analysis D. Create and analyze a $2 \times 2$ table
+
+Here, you will need to identify two categorical (binary) variables. Each cell of the resulting 2 x 2 table should contain a minimum of 30 subjects. You should be focused on the relative risk, odds ratio (sample version) and risk difference comparisons for point estimates, and on interpreting the confidence interval for the risk difference comparison. 
+
+#### Analysis E. Create and analyze a $J \times K$ table, where $2 \leq J \leq 5$ and $3 \leq K \leq 5$
+
+Here, you will need to identify two categorical variables, at least one of which should contain 3-5 levels, while the other contains 2-5 levels. Each cell in the cross-tabulation of the two variables within the table should have a minimum of 15 observations. Here, you should be providing an appropriate cross-tabulation, the results of a chi-square test, accompanied by a useful visualization and description of the nature of the observed association.
+

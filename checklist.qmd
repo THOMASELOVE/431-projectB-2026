@@ -1,0 +1,92 @@
+---
+title: "431 Project B Checklist"
+author: "431 Staff"
+date: last-modified
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(comment = NA)
+```
+
+# Main Tasks
+
+1. Complete the Project B [Registration Form](register.qmd) to obtain my approval for your plan, let me know if you're working with a partner, and schedule your oral presentation.
+    - The early November registration deadline is specified in the [Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
+2. You (and your partner, if you have one) will present your project on December 4-9 to Dr. Love in his office or over Zoom. Details on the Oral Presentation are provided below. 3. You will build two Quarto and HTML reports (separate reports for [Study 1](study1a.qmd) and [Study 2](study2a.qmd)) due at the project B portfolio deadline.
+    - If you're not using NHANES data, you'll also submit your data to me at that time.
+    - Details on how to submit your reports are provided below.
+4. Finally, complete the Project B [Self-Evaluation](self_eval.qmd) form, also due at the same time as the Reports for Study 1 and Study 2, as specified on the Course Calendar.
+
+
+# Submitting Your Study 1 Report
+
+Your Study 1 Report is to be submitted [to Canvas](https://canvas.case.edu/) by the deadline in [the Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
+
+- This submission should include both your Quarto and HTML results.
+- Be sure that the names of your Quarto and HTML files clearly identify whose project is being submitted, and an indication that these files refer to study 1.
+- If you are working with a partner, one of you should submit both the Study 1 and Study 2 reports to [Canvas](https://canvas.case.edu/), and the other person should submit a one-page note to [Canvas](https://canvas.case.edu/) (Word or PDF is best) containing your name, and stating something like "I worked on Project B with [your partner's name] and they will submit Project B for our group."
+
+# Submitting Your Study 2 Report
+
+Your Study 2 Report is to be submitted to [to Canvas](https://canvas.case.edu/) by the deadline in [the Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
+
+- This submission should include both your Quarto and HTML results.
+- In addition, if you worked with any data other than NHANES, your submission also needs to include your data (in the form you used to ingest the data in your Quarto file, so that we can run your Quarto code and obtain your HTML results.)
+- Be sure that the names of your Quarto and HTML files clearly identify whose project is being submitted, and an indication that these files refer to study 2.
+- Again, if you are working with a partner, one of you should submit both the Study 1 and Study 2 reports to [Canvas](https://canvas.case.edu/), and the other person should submit a one-page note to [Canvas](https://canvas.case.edu/), (word or PDF is best) containing your name, and stating something like "I worked on Project B with [your partner's name] and they will submit Project B for our group."
+
+# Oral Presentation of Results
+
+Your meeting time is 20 minutes long, and please arrive 5 minutes early, either in person or via Zoom. If you have an emergency on the day of your presentation, email Dr. Love as soon as possible. Zoom information will be provided to you by December 1.
+
+Your meeting will involve materials from each of your studies, discussed in a fairly regimented way, described below. If you are working with a partner, Dr. Love will randomly determine at the meeting who will speak and when, so you need to each be prepared to give the entire presentation. Dr. Love will keep track of time, and move you along as necessary, so you won't have to worry about that.
+
+- You will need to share a screen to show me the key results as you describe them for each of the analyses in Study 1 and in Study 2 that you wind up discussing. It is best if one of you is prepared to share their screen for both presentations, if you're working with a partner, and I encourage you to practice this in advance.
+- You are welcome to show me results in the context of a Powerpoint-style presentation, if you prefer to develop one, or to show me results straight from your Quarto-created HTML files in your portfolio. Whatever works for you - so long as I can see what you are talking about as you are talking, we'll be fine. Make sure you know how to increase the size of the text in your HTML file while presenting it.
+- I will NOT be able to pull up your report or other materials while we are talking. You will have to be able to do that.
+
+### Study 1 presentation (6-8 minutes)
+
+In Study 1, you will first select your most interesting / intriguing result out of your four main analyses and present that, in about 2 minutes. In those 2 minutes, you should be showing me the highlights of that Analysis, specifically:
+
+- Which Analysis (A, B, C, D, or E) are we describing?
+- What research question are you investigating, and what variables did you use?
+- What conclusion did you draw about that question?
+- What statistical method led you to that conclusion?
+
+I will then ask you to tell me which of the other analyses (meaning A, B, C, D, or E) you did. I will then ask you to present the results of one of the other analyses you did, in a similar way. You will need to come prepared to present this information for any of your Study 1 analyses at a moment's notice, as you will not know in advance which of your other analyses you did that I will ask for.
+
+### Study 2 presentation (10-12 minutes)
+
+In Study 2, you will start with telling me about the most important finding of your little study in 5 minutes. In these 5 minutes, you will tell me:
+
+- What your research question was and why it was interesting to you (combined this should take no more than 30 seconds)
+- What your better model has to say about the answer to your research question
+    - This should include a description of the predictors that wound up in your (final) model and the direction of each of their effects on your outcome. Show me the model as you're telling me about this.
+    - This should also include a sense of how well the model predicted overall ($R^2$ is one good choice.)
+    - This should also include whether the posterior predictive plots show systematic discrepancies between the fitted model's predictions and your observed data. Show me the plot as you're telling me about this.
+    - This should also include a discussion of whether residual plots for your final model fit regression assumptions. Show me the plots as you're telling me about this.
+    - Your conclusions about rational next steps to learn more from these data, or what specific new data you now wish you'd had when you started the study.
+    
+For most of the remaining time, I will ask you about your study, and try to help you think through any problems you had in obtaining or interpreting analyses. You should come prepared to share any of the steps in your analysis at a moment's notice, as we may want to look at any part of your work.
+
+### Final Questions (2-4 minutes)
+
+Depending on remaining time, I may ask you any of several questions at the end of our meeting. Some possibilities you should be prepared for include the following (some of which also appear in the self-evaluation)
+
+- What percentage of your time in Project B did you spend obtaining, cleaning, merging and tidying data, as opposed to actually performing analyses on tidy data?
+- Tell me something useful that you learned from doing Project B.
+- Tell me what the hardest part of doing Project B was.
+- What did you learn from Project A that was helpful in doing Project B?
+- What do you know now that you wish you'd known back when you started Project B? What would you tell yourself if you could go back in time?
+
+# A Special Note
+
+If you've read down to here before 5 PM on November 30, thanks and here's an opportunity for a little bonus credit. Send Dr. Love an email no later than 5 PM on November 30 with the subject line 431 Favorite Song, telling him your favorite song (and providing a link to a video of the song on YouTube), and you'll get some bonus credit.
+
+# Self-Evaluation for Project B
+
+The Self-Evaluation for Project B Form will open December 3 and should take about 15 minutes to complete. If you are working in a team, **each** of you need to complete the form as an individual. 
+
+The Form is due when the Project B materials are due, and you'll complete it **after** meeting with Dr. Love for your presentation. Find [the link to the Self-Evaluation Form here](self_eval.qmd).
+
