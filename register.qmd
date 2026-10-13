@@ -12,7 +12,7 @@ knitr::opts_chunk$set(comment = NA)
 
 You will use [this Google Form](https://tinyurl.com/431-2026-register-projectB) to register for Project B. The early November deadline (for Project B Registration) is specified on [the Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
 
-- [The form](https://tinyurl.com/431-2026-register-projectB) will open by 2026-10-16.
+- [The form](https://tinyurl.com/431-2026-register-projectB) will open on 2026-10-26.
 - Your response will be automatically emailed to your CWRU email once you submit the form. If you need to edit your submission, you can do so with the link included in that email.
 - If you are working with a partner, there will be an opportunity to indicate that on this form, and only one of you (you or your partner) should complete the whole thing, while the other person needs to only complete a few of the items, as you'll see.
 
@@ -34,14 +34,32 @@ Five things.
 
 ### Time Periods for Presentations
 
-Your actual presentation time will be 20 minutes, but we have divided the schedule into longer blocks of 75 minutes below. During each block, we will schedule up to 3 presentations. On site means Dr. Love's office at the School of Medicine at CWRU, and Zoom means via Zoom. 
+Your actual presentation time will be 20 minutes, but we have divided the schedule into longer blocks of 75 minutes below. During each block, we will schedule up to 3 presentations. In Person means Dr. Love's office at the School of Medicine at CWRU, and Zoom means via Zoom. 
 
 Note that December 7 is a reading day, and the last day of class (for all classes) is December 4. Regardless of when you give your presentation, your final report is due at the deadline (December 11 at noon) in [the Course Calendar](https://thomaselove.github.io/431-2026/calendar.html).
 
-Note that you will need to select at least 5 of the available 20 time periods below, and that those selections cannot all be on the same date. You will also have the opportunity to identify your top choice for your presentation and your preference for Zoom vs. On Site in the form, but I will not guarantee that I will match those preferences.
+Note that you will need to select at least 5 of the available 20 time periods below, and that those selections cannot all be on the same date. You will also have the opportunity to identify your top choice for your presentation and your preference for Zoom vs. In Person in the form, but I will not guarantee that I will match those preferences.
 
-:::{.callout-important}
+Time Slot | Date | Time | Style
+---------: | :-----------------: | :--------------: | ------------
+1 | Friday 2026-12-04 | 9:00 - 10:15 AM | Zoom
+2 | Friday 2026-12-04 | 10:15 - 11:30 AM | Zoom
+3 | Friday 2026-12-04 | 12:30 - 1:45 PM | Zoom
+4 | Friday 2026-12-04 | 1:45 - 3:00 PM | Zoom
+5 | Friday 2026-12-04 | 3:00 - 4:15 PM | Zoom
+6 | Monday 2026-12-07 | 9:00 - 10:15 AM | Zoom
+7 | Monday 2026-12-07 | 10:15 - 11:30 AM | Zoom
+8 | Monday 2026-12-07 | 12:30 - 1:45 PM | Zoom
+9 | Monday 2026-12-07 | 1:45 - 3:00 PM | Zoom
+10 | Monday 2026-12-07 | 3:45 - 5:00 PM | Zoom
+11 | Tuesday 2026-12-08 | 9:00 - 10:15 AM | In Person or Zoom
+12 | Tuesday 2026-12-08 | 10:15 - 11:30 AM | In Person or Zoom
+13 | Tuesday 2026-12-08 | 12:15 - 1:30 PM | In Person or Zoom
+14 | Tuesday 2026-12-08 | 1:30 - 2:45 PM | In Person or Zoom
+15 | Tuesday 2026-12-08 | 4:00 - 5:15 PM | Zoom
+16 | Tuesday 2026-12-08 | 5:15 - 6:30 PM | Zoom
+17 | Tuesday 2026-12-08 | 7:15 - 8:30 PM | Zoom
+18 | Wednesday 2026-12-09 | 8:30 - 9:45 AM | Zoom
+19 | Wednesday 2026-12-09 | 11 AM - 12:15 PM | Zoom
+20 | Wednesday 2026-12-09 | 3:15 PM - 4:30 PM | Zoom
 
-Available time slots will be posted here in mid-October.
-
-:::
