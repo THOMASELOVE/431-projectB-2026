@@ -42,7 +42,7 @@ Here, you will need to identify one quantitative (outcome) and one categorical v
 
 #### Analysis C. Compare 3-6 means/medians using independent samples
 
-Here, you will need to identify one quantitative (outcome) and one categorical variable (multi-categorical with 3-6 levels.) Here, you should be thinking about an analysis of variance with either a set of Holm (probably better if you have unequal sample sizes in your groups) or Tukey HSD (better if you have a fairly balanced design) pairwise comparisons. This would require a quantitative outcome (with at least 15 unique values), and a multi-categorical variable with 3-6 categories which divides the data into subgroups, so that each subgroup has a minimum of 30 observations.
+Here, you will need to identify one quantitative (outcome) and one categorical variable (multi-categorical with 3-6 levels.) Here, you should be thinking about an analysis of variance with either a set of Bonferroni or Holm (probably better if you have unequal sample sizes in your groups) or Tukey HSD (better if you have a fairly balanced design) pairwise comparisons. This would require a quantitative outcome (with at least 15 unique values), and a multi-categorical variable with 3-6 categories which divides the data into subgroups, so that each subgroup has a minimum of 30 observations.
 
 #### Analysis D. Create and analyze a $2 \times 2$ table
 
